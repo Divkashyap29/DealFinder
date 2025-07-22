@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DealFinder - Find the Best Deals</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <i class="fas fa-search-dollar"></i>
+                <span>DealFinder</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Find the Best Deals
+                <span class="highlight">Across All Stores</span>
+            </h1>
+            <p class="hero-subtitle">
+                Compare prices in real-time from Amazon, Walmart, Flipkart, and more. 
+                Save money and time with smart price comparison.
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Search for products (e.g., iPhone 14)" class="search-input">
+                    <button class="search-btn" onclick="performSearch()">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="searchSuggestions">
+                    <span class="suggestion-label">Popular searches:</span>
+                    <div class="suggestion-tags">
+                        <span class="tag" onclick="searchProduct('iPhone 14')">iPhone 14</span>
+                        <span class="tag" onclick="searchProduct('Samsung Galaxy')">Samsung Galaxy</span>
+                        <span class="tag" onclick="searchProduct('MacBook Pro')">MacBook Pro</span>
+                        <span class="tag" onclick="searchProduct('Nike Shoes')">Nike Shoes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="hero-image">
+            <div class="floating-card card-1">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Amazon</span>
+                <div class="price">$999</div>
+            </div>
+            <div class="floating-card card-2">
+                <i class="fas fa-store"></i>
+                <span>Walmart</span>
+                <div class="price">$949</div>
+            </div>
+            <div class="floating-card card-3">
+                <i class="fas fa-box"></i>
+                <span>Flipkart</span>
+                <div class="price">$979</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose DealFinder?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Comparison</h3>
+                    <p>Get instant price comparisons across multiple stores to find the best deals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Trusted Sources</h3>
+                    <p>Compare prices from Amazon, Walmart, Flipkart, and other trusted retailers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Smart Sorting</h3>
+                    <p>Sort results by price, rating, or relevance to make informed decisions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Save Time</h3>
+                    <p>No more browsing multiple websites. Find the best deal in seconds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stores Section -->
+    <section class="stores">
+        <div class="container">
+            <h2 class="section-title">Supported Stores</h2>
+            <div class="stores-grid">
+                <div class="store-card">
+                    <div class="store-icon amazon">
+                        <i class="fab fa-amazon"></i>
+                    </div>
+                    <h3>Amazon</h3>
+                    <p>World's largest online marketplace</p>
+                </div>
+                <div class="store-card">
+                    <div class="store-icon walmart">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Walmart</h3>
+                    <p>Everyday low prices guaranteed</p>
+                </div>
+                <div class="store-card">
+                    <div class="store-icon flipkart">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>Flipkart</h3>
+                    <p>India's leading e-commerce platform</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Find Amazing Deals?</h2>
+            <p>Start comparing prices now and save money on your next purchase</p>
+            <button class="cta-btn" onclick="scrollToSearch()">
+                <i class="fas fa-search"></i>
+                Start Searching
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-search-dollar"></i>
+                    <span>DealFinder</span>
+                </div>
+                <p>&copy; 2024 DealFinder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Results Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Search Results</h3>
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="searchResults">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
